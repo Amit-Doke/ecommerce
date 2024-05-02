@@ -1,0 +1,512 @@
+<div class="admin-container">
+  <div *ngIf="mode1==='login'">
+    <div *ngIf="dataService.isLoggedIn!=2">
+      <div class="login-container">
+        <h3>Admin Login</h3>
+        <div class="login-data-container" >
+          <span style="font-weight: 700;align-self: flex-start;">Enter Email :</span> 
+          <input type="text" style="border: 2px solid;border-radius: 5px;" [disabled]="otpFlag" #email>
+        </div>
+        <!-- <div class="login-data-container" *ngIf="!otpFlag">
+          <span style="font-weight: 700;align-self: flex-start;">Enter OTP : </span>
+          <input type="password" style="border: 2px solid;border-radius: 5px;" [(ngModel)]="otp">  
+        </div> -->
+        <div class="login-data-container" *ngIf="!otpFlag">
+          <span style="font-weight: 700;align-self: flex-start;">Enter Password : </span>
+          <input type="password" style="border: 2px solid;border-radius: 5px;" [(ngModel)]="password">
+        </div>
+
+        <div class="login-data-container">
+          <ng-container>
+            <!-- <button class="nav-button" style="height: 40%;width:80%" *ngIf="otpFlag" (click)="generateOtp(email.value)" [disabled]="ot">Generate OTP</button> -->
+            <button class="nav-button" style="height: 40%;width:80%" *ngIf="!otpFlag" (click)="login(email.value)">Log in</button>
+          </ng-container>
+          
+          
+        </div>
+
+        <div class="login-data-container" style="flex-direction: row;">
+          <h6>Don't Have An Account?</h6>
+          <button style="cursor: pointer;" (click)="mode1='register'">Sign Up</button>
+        </div>
+
+      </div>
+    </div>
+    <div *ngIf="dataService.isLoggedIn==2">
+      <div class="nav-bar">
+        <button class="nav-button" [disabled]="mode2==='dashBoard'" (click)="mode2='dashBoard'">DashBoard</button>
+        <button class="nav-button" [disabled]="mode2==='viewProduct'" (click)="mode2='viewProduct';viewProduct()">View
+          Product</button>
+        <button class="nav-button" [disabled]="mode2==='addProduct'" (click)="mode2='addProduct';resetProduct()">Add Product</button>
+        <button class="nav-button" [disabled]="mode2==='viewOrder'" (click)="mode2='viewOrder';viewOrder()">View Order</button>
+        <button class="nav-button" *ngIf="dataService.isLoggedIn==2" (click)="logOut()">Log Out</button>
+      </div>
+      <ng-container>
+        <div *ngIf="mode2==='dashBoard'">
+          <div class="dash-container">
+            <div class="dash-data">
+              <h2 class="dash-head">OverAll Profit</h2>
+              <h3 class="dash-price">&#x20B9;{{info.profit}}</h3>
+            </div>
+
+            <div class="dash-data">
+              <h2 class="dash-head">OverAll Loss</h2>
+              <h3 class="dash-price" style="color: brown;">&#x20B9;{{info.loss}}</h3>
+            </div>
+
+            <div class="dash-data">
+              <h2 class="dash-head">Today's Profit</h2>
+              <h3 class="dash-price">&#x20B9;{{info.todayProfit}}</h3>
+            </div>
+
+            <div class="dash-data">
+              <h2 class="dash-head">Today's Loss</h2>
+              <h3 class="dash-price" style="color: brown;">&#x20B9;{{info.todayLoss}}</h3>
+            </div>
+
+
+          </div>
+
+          <div class="dash-container">
+
+            <div class="dash-data">
+              <h2 class="dash-head">Total Products In Inventory</h2>
+              <h3 class="dash-price">{{info.totalProduct}}</h3>
+            </div>
+
+            <div class="dash-data">
+              <h2 class="dash-head">Today's Pending Order</h2>
+              <h3 class="dash-price">{{info.pendingOrder}}</h3>
+            </div>
+
+            <div class="dash-data">
+              <h2 class="dash-head">Out Of Stock Products </h2>
+              <h3 class="dash-price" style="color: brown;">{{info.outStockProduct}}</h3>
+            </div>
+
+          </div>
+        </div>
+
+        <div *ngIf="mode2==='viewProduct'">
+          <br>
+          <table class="product-table">
+            <th class="table-th">
+              Sr no.
+            </th>
+            <th class="table-th">
+              Category
+            </th>
+            <th class="table-th">
+              Brand
+            </th>
+            <th class="table-th">
+              Name
+            </th>
+            <th class="table-th">
+              Price
+            </th>
+            <th class="table-th">
+              Cost Price
+            </th>
+            <th class="table-th">
+              Quantity
+            </th>
+            <th class="table-th">
+              Discount
+            </th>
+            <th class="table-th">
+              Color
+            </th>
+            <th class="table-th">
+              Size Name
+            </th>
+            <th class="table-th">
+              Description
+            </th>
+            <th class="table-th">
+              Product Image
+            </th>
+            <tr align="center" *ngFor="let product of products;let i=index">
+              <td>
+                {{i+1}}
+              </td>
+              <td>
+                <div class="order-table-data" *ngIf="!product.categoryFlag">
+                  {{product.category}}
+                </div>
+                <select [(ngModel)]="product.category" style="background-color: antiquewhite;" *ngIf="product.categoryFlag">
+                  <option *ngFor="let item of categories" [value]="item">{{item}}</option>
+                </select>
+                <ng-container>
+                  <button class="op-button" (click)="product.categoryFlag=true">EDIT</button>
+                  <button class="op-button" (click)="updateProduct(product);product.categoryFlag=false" *ngIf="product.categoryFlag">OK</button>
+                </ng-container>
+
+              </td>
+              <td>
+                <input type="text" class="table-input" [(ngModel)]="product.brand" [disabled]="!product.brandFlag">
+                <ng-container>
+                  <button class="op-button" (click)="product.brandFlag=true">EDIT</button>
+                  <button class="op-button" *ngIf="product.brandFlag" (click)="updateProduct(product);product.brandFlag=false">OK</button>
+                </ng-container>
+              </td>
+
+              <td>
+                <input type="text" class="table-input" [(ngModel)]="product.name" [disabled]="!product.nameFlag">
+                <ng-container>
+                  <button class="op-button" (click)="product.nameFlag=true">EDIT</button>
+                  <button class="op-button" *ngIf="product.nameFlag" (click)="updateProduct(product);product.nameFlag=false">OK</button>
+                </ng-container>
+              </td>
+
+              <td>
+                &#x20B9;<input type="text" class="table-input" [(ngModel)]="product.price" [disabled]="!product.priceFlag">
+                <ng-container>
+                  <button class="op-button" (click)="product.priceFlag=true">EDIT</button>
+                  <button class="op-button" *ngIf="product.priceFlag" (click)="updateProduct(product);product.priceFlag=false">OK</button>
+                </ng-container>
+              </td>
+
+              <td>
+                &#x20B9;<input type="text" class="table-input" [(ngModel)]="product.costPrice" [disabled]="!product.costPriceFlag">
+                <ng-container>
+                  <button class="op-button" (click)="product.costPriceFlag=true">EDIT</button>
+                  <button class="op-button" *ngIf="product.costPriceFlag" (click)="updateProduct(product);product.costPriceFlag=false">OK</button>
+                </ng-container>
+              </td>
+
+              <td>
+                <input type="text" class="table-input" [(ngModel)]="product.quantity" [disabled]="!product.quantityFlag" [ngStyle]="product.quantity==0?{'color': 'red'}:{}">
+                <ng-container>
+                  <button class="op-button" (click)="product.quantityFlag=true">EDIT</button>
+                  <button class="op-button" *ngIf="product.quantityFlag" (click)="updateProduct(product);product.quantityFlag=false">OK</button>
+                </ng-container>
+              </td>
+
+              <td>
+                <input type="text" class="table-input" [(ngModel)]="product.discount" [disabled]="!product.discountFlag">
+                <ng-container>
+                  <button class="op-button" (click)="product.discountFlag=true">EDIT</button>
+                  <button class="op-button" *ngIf="product.discountFlag" (click)="updateProduct(product);product.discountFlag=false">OK</button>
+                </ng-container>
+              </td>
+              <td>
+                #<input type="text" class="table-input" placeholder="Enter Color Code" [(ngModel)]="product.color" [disabled]="!product.colorFlag">
+                <span [ngStyle]="{'background-color':'#'+product.color,'width':'60%'}" class="color-code"></span>
+                <ng-container>
+                  <button class="op-button" (click)="product.colorFlag=true">EDIT</button>
+                  <button class="op-button" *ngIf="product.colorFlag" (click)="updateProduct(product);product.colorFlag=false">OK</button>
+                </ng-container>
+              </td>
+              <td>
+                <input type="text" class="table-input" placeholder="Enter Size Name" [(ngModel)]="product.sizeName" [disabled]="!product.sizeNameFlag">
+                
+                <ng-container>
+                  <button class="op-button" (click)="product.sizeNameFlag=true">EDIT</button>
+                  <button class="op-button" *ngIf="product.sizeNameFlag" (click)="updateProduct(product);product.sizeNameFlag=false">OK</button>
+                </ng-container>
+              </td>
+              <td>
+                <textarea rows="3" cols="20" placeholder="Enter Description" style="font-size: 0.7vw;background-color: antiquewhite;" [(ngModel)]="product.description" [disabled]="!product.descriptionFlag">{{product.description}}</textarea>
+                <ng-container>
+                  <button class="op-button" (click)="product.descriptionFlag=true">EDIT</button>
+                  <button class="op-button" *ngIf="product.descriptionFlag" (click)="updateProduct(product);product.descriptionFlag=false">OK</button>
+                </ng-container>
+              </td>
+              <td>
+                <span style="font-size: 1vw;color: brown;">Upload Image in PNG Format with Less than 1MB size</span>
+                <br>
+                <input type="file" class="table-input"  (change)="uploadFile($event,product)" *ngIf="product.urlFlag">
+
+                <ng-container>
+                  <button class="op-button" (click)="product.urlFlag=true">EDIT</button>
+                </ng-container>
+              </td>
+
+            </tr>
+          </table>
+        </div>
+
+        <div *ngIf="mode2==='addProduct'">
+          <div class="add-product-container">
+            <div class="product-data">
+              <h3>Enter Product Name:</h3>
+              <input type="text" class="product-input" [(ngModel)]="newProduct.name">
+            </div>
+
+            <div class="product-data">
+              <h3>Select Category:</h3>
+              <select [(ngModel)]="newProduct.category" style="background-color: antiquewhite;margin-top: 3%;">
+                <option *ngFor="let item of categories" [value]="item">{{item}}</option>
+              </select>
+            </div>
+
+            <div class="product-data">
+              <h3>Enter Brand:</h3>
+              <input type="text" class="product-input" [(ngModel)]="newProduct.brand">
+            </div>
+
+            <div class="product-data">
+              <h3>Enter Per Unit Price:</h3>
+              <input type="number" class="product-input" [(ngModel)]="newProduct.price">
+            </div>
+
+            <div class="product-data">
+              <h3>Enter Cost Price Per Unit :</h3>
+              <input type="number" class="product-input" [(ngModel)]="newProduct.costPrice">
+            </div>
+
+            <div class="product-data">
+              <h3>Enter Quantity:</h3>
+              <input type="number" class="product-input" [(ngModel)]="newProduct.quantity">
+            </div>
+
+            <div class="product-data">
+              <h3>Enter Discount %:</h3>
+              <input type="number" class="product-input" [(ngModel)]="newProduct.discount">
+            </div>
+
+            <div class="product-data">
+              <h3>Enter Color Code:</h3>
+              #<input type="text" class="product-input" style="width: 40%;" [(ngModel)]="newProduct.color">
+              <span [ngStyle]="{'background-color':'#'+newProduct.color}" class="color-code" ></span>
+            </div>
+
+            <div class="product-data">
+              <h3>Size Name : </h3>
+              <input type="text" class="product-input" [(ngModel)]="newProduct.sizeName">
+            </div>
+
+            <div class="product-data">
+              <h3>Description :</h3>
+              <textarea rows="2" cols="80" placeholder="Enter Description" style="font-size: 0.8rem;background-color: antiquewhite;" [(ngModel)]="newProduct.description">{{newProduct.description}}</textarea>
+            </div>
+            <div class="product-data">
+              <h3>Upload Image:</h3>
+              <span style="font-size: 1vw;color: brown;">Upload Image in PNG Format with Less than 1MB size</span>
+                <br>
+              <input type="file" class="table-input" (change)="imgUpdate($event)">
+            </div>
+            
+          </div>
+
+          <button class="product-button" (click)="addNewProduct()">Add Product</button>
+        </div>
+
+        <div *ngIf="mode2==='viewOrder'">
+          <div style="margin-top: 2%;">
+            Filter By : 
+            <select [(ngModel)]="deliveryStatusFilter" style="background-color: antiquewhite;" (change)="filterOrder()">
+              <option *ngFor="let item of deliveryStatues" [value]="item">{{item}}</option>
+            </select>
+
+            <table class="product-table">
+              <th class="table-th">
+                Sr no.
+              </th>
+              <th class="table-th">
+                Order Created Date
+              </th>
+              <th class="table-th">
+                Product Name
+              </th>
+              <th class="table-th">
+                Price
+              </th>
+              <th class="table-th">
+                Quantity
+              </th>
+              <th class="table-th">
+                User Name
+              </th>
+              <th class="table-th">
+                User Email
+              </th>
+              <th class="table-th">
+                User Phone Number (+91)
+              </th>
+              <th class="table-th">
+                User Delivery Address
+              </th>
+              <th class="table-th">
+                Delivery Status
+              </th>
+              <th class="table-th">
+                OTP
+              </th>
+              
+              <tr align="center" *ngFor="let order of orders;let i=index" >
+                <td>
+                  {{i+1}}
+                </td>
+                <td>
+                  <div class="order-table-data">
+                    {{order.created | date}} 
+                  </div>
+                </td>
+                <td>
+                  <div class="order-table-data">
+                    {{order.productName}}
+                  </div>
+                </td>
+  
+                <td>
+                  <div class="order-table-data">
+                    &#x20B9;{{order.price}}
+                  </div>
+                </td>
+  
+                <td>
+                  <div class="order-table-data">
+                    {{order.quantity}}
+                  </div>
+                </td>
+  
+                <td>
+                  <div class="order-table-data">
+                    {{order.userName}}
+                  </div>
+                </td>
+  
+                <td>
+                  <div class="order-table-data">
+                    {{order.userEmail}}
+                  </div>
+                </td>
+                <td>
+                  <div class="order-table-data">
+                    {{order.phoneNumber}}
+                  </div>
+                </td>
+                <td>
+                  <div class="order-table-data" style="height: 9vh;">
+                    {{order.address}}
+                  </div>
+                </td>
+                <td>
+                  <ng-container *ngIf="!order.flag">
+                    {{order.status}}
+                  </ng-container>
+                  
+                  <select [(ngModel)]="order.status" style="background-color: antiquewhite;" *ngIf="order.flag" >
+                    <option *ngFor="let item of order.deliveryStatues" [value]="item">{{item}}</option>
+                  </select>
+                  <div style="display: flex;flex-direction: row;justify-content: space-between;align-content: center;" *ngIf="order.status==='Rejected'">
+                    <span style="font-size: 0.6vw;color:brown;font-weight: 700;align-self: center;">Due to,</span><input type="text" class="table-input" [(ngModel)]="rejectReason">
+                  </div>
+                  <ng-container>
+                    <button class="op-button" *ngIf="!order.flag" (click)="order.flag=true">EDIT</button>
+                    <button class="op-button" *ngIf="order.flag" (click)="changeStatus(order)">OK</button>
+                  </ng-container>
+                </td>
+                
+                <td>
+                  <div >
+                    {{order.otp}}
+                  </div>
+                </td>
+
+              </tr>
+            </table>
+          </div>
+          
+        </div>
+      </ng-container>
+
+
+    </div>
+  </div>
+
+  <div *ngIf="mode1==='register'">
+    <div class="login-container" style="height: 80vh;">
+      <h3>Admin Register</h3>
+      <div class="login-data-container">
+        <span style="font-weight: 700;align-self: flex-start;">Enter Email :</span> 
+        <input type="text" style="border: 2px solid;border-radius: 5px;" [disabled]="otpFlag" [(ngModel)]="admin.email">
+      </div>
+
+      <!-- <div class="login-data-container" *ngIf="!otpFlag">
+        <span style="font-weight: 700;align-self: flex-start;">Enter OTP : </span>
+        <input type="password" style="border: 2px solid;border-radius: 5px;" [(ngModel)]="otp">  
+      </div> -->
+
+      <div class="login-data-container" *ngIf="!otpFlag">
+        <span style="font-weight: 700;align-self: flex-start;">Enter Full Name : </span>
+        <input type="text" style="border: 2px solid;border-radius: 5px;" [(ngModel)]="admin.name">
+        
+      </div>
+      <div class="login-data-container" *ngIf="!otpFlag">
+        <span style="font-weight: 700;align-self: flex-start;">Enter Phone Number : </span>
+        <input type="number" style="border: 2px solid;border-radius: 5px;" [(ngModel)]="admin.mobileNumber">
+        
+      </div>
+      <div class="login-data-container" *ngIf="!otpFlag">
+        <span style="font-weight: 700;align-self: flex-start;">Enter GST Number : </span>
+        <input type="text" style="border: 2px solid;border-radius: 5px;" [(ngModel)]="admin.gstNumber">
+        
+      </div>
+
+      <div class="login-data-container" *ngIf="!otpFlag">
+        <span style="font-weight: 700;align-self: flex-start;">Enter Office Address : </span>
+        <input type="text" style="border: 2px solid;border-radius: 5px;" [(ngModel)]="admin.address">
+        
+      </div>
+
+      <div class="login-data-container" *ngIf="!otpFlag">
+        <span style="font-weight: 700;align-self: flex-start;">Enter Password : </span>
+        <input type="password" style="border: 2px solid;border-radius: 5px;" [(ngModel)]="admin.password">
+        
+      </div>
+
+      <div class="login-data-container">
+        <ng-container>
+          <button class="nav-button" style="height: 40%;width:80%" *ngIf="otpFlag" (click)="generateOtp(admin.email)" [disabled]="ot">Generate OTP</button>
+          <!-- <button class="nav-button" style="height: 40%;width:80%" *ngIf="!otpFlag" (click)="register()">Sign Up</button> -->
+        </ng-container>
+      </div>
+
+      <div class="login-data-container" style="flex-direction: row;">
+        <h6>Don't Have An Account?</h6>
+        <button style="cursor: pointer;" (click)="mode1='login'">Log in</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="mode1==='forget'">
+    <div class="login-container">
+      <h3>Reset Admin Password</h3>
+      <div class="login-data-container" >
+        <span style="font-weight: 700;align-self: flex-start;">Enter Email :</span> 
+        <input type="text" style="border: 2px solid;border-radius: 5px;" [disabled]="otpFlag" #email>
+      </div>
+      <!-- <div class="login-data-container" *ngIf="!otpFlag">
+        <span style="font-weight: 700;align-self: flex-start;">Enter OTP : </span>
+        <input type="password" style="border: 2px solid;border-radius: 5px;" [(ngModel)]="otp">  
+      </div> -->
+      <div class="login-data-container" *ngIf="!otpFlag">
+        <span style="font-weight: 700;align-self: flex-start;">Enter New Password : </span>
+        <input type="password" style="border: 2px solid;border-radius: 5px;" [(ngModel)]="pass">
+      </div>
+
+      <div class="login-data-container" *ngIf="!otpFlag">
+        <span style="font-weight: 700;align-self: flex-start;">Confirm Password : </span>
+        <input type="password" style="border: 2px solid;border-radius: 5px;" [(ngModel)]="cpass">
+      </div>
+
+      <div class="login-data-container">
+        <ng-container>
+          <!-- <button class="nav-button" style="height: 40%;width:80%" *ngIf="otpFlag" (click)="generateOtp(email.value)" [disabled]="ot">Generate OTP</button> -->
+          <button class="nav-button" style="height: 40%;width:80%" *ngIf="!otpFlag" (click)="forgot(email.value)">Change Password</button>
+        </ng-container>
+        
+        
+      </div>
+
+      <div class="login-data-container" style="flex-direction: row;">
+        <h6>Don't Have An Account?</h6>
+        <button style="cursor: pointer;" (click)="mode1='register'">Sign Up</button>
+      </div>
+
+    </div>
+  </div>
+</div>

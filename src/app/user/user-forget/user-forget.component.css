@@ -1,0 +1,627 @@
+:host { 
+    display: contents; 
+  }
+  .forgot-password-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--dl-color-ecommecre-60);
+  }
+  .forgot-password-container01 {
+    flex: 0 0 auto;
+    width: 70vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .forgot-password-box-container {
+    width: 50%;
+    height: 90vh;
+    display: flex;
+    box-shadow: 7px 7px 14px #1A535C, -7px -7px 14px #4ECDC4;
+    margin-top: 2%;
+    align-items: flex-start;
+    border-radius: var(--dl-radius-radius-radius8);
+    flex-direction: column;
+  }
+  .forgot-password-icon-container {
+    flex: 0 0 auto;
+    width: 30%;
+    height: 15%;
+    display: flex;
+    align-self: center;
+    margin-top: var(--dl-space-space-oneandhalfunits);
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .forgot-password-icon {
+    fill: var(--dl-color-ecommecre-10);
+    width: 80%;
+    height: 80%;
+  }
+  .forgot-password-title-container {
+    flex: 0 0 auto;
+    width: 353px;
+    display: flex;
+    align-self: center;
+    margin-top: 2%;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .forgot-password-text {
+    color: var(--dl-color-ecommecre-10);
+    font-size: 1.8rem;
+    align-self: center;
+    font-family: Poppins;
+  }
+  .forgot-password-log-container {
+    width: 70%;
+    height: 65%;
+    display: flex;
+    align-self: center;
+    margin-top: 5%;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .forgot-password-email-container {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-self: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .forgot-password-container02 {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .forgot-password-text01 {
+    color: var(--dl-color-ecommecre-10);
+    font-size: 15px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 500;
+    letter-spacing: 3px;
+  }
+  .forgot-password-container03 {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    margin-top: 2%;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  .forgot-password-textinput {
+    color: var(--dl-color-ecommecre-10);
+    width: 70%;
+    height: 100%;
+    padding: 0px;
+    box-shadow: 0px 5px 10px 0px #d4d4d4;
+    font-family: Poppins;
+    border-color: var(--dl-color-ecommecre-10);
+    border-radius: var(--dl-radius-radius-radius8);
+    background-color: var(--dl-color-ecommecre-60);
+  }
+  .forgot-password-button {
+    color: var(--dl-color-ecommecre-10);
+    width: 20%;
+    cursor: pointer;
+    height: 100%;
+    padding: 1%;
+    box-shadow: 0px 5px 10px 0px #d4d4d4;
+    text-align: center;
+    font-family: Poppins;
+    margin-left: 10%;
+    border-width: 0px;
+    border-radius: var(--dl-radius-radius-radius8);
+    background-color: var(--dl-color-ecommecre-60);
+    transition: 0.8s ease-in-out;
+  }
+
+  .forgot-password-button:hover{
+    background-color: black;
+    color: aliceblue;
+  }
+  .forgot-password-button:disabled{
+    opacity: 0.5;
+  }
+  .forgot-password-container04 {
+    flex: 0 0 auto;
+    width: 60%;
+    height: 25%;
+    display: flex;
+    position: relative;
+    align-self: flex-end;
+    margin-top: 2%;
+    align-items: flex-start;
+  }
+  .forgot-password-text02 {
+    top: 0px;
+    color: var(--dl-color-danger-300);
+    right: 0px;
+    position: absolute;
+    text-align: right;
+    font-family: Poppins;
+  }
+  .forgot-password-otp-container {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-self: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .forgot-password-container05 {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .forgot-password-text03 {
+    color: var(--dl-color-ecommecre-10);
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 500;
+    letter-spacing: 3px;
+  }
+  .forgot-password-container06 {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    margin-top: 2%;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  .forgot-password-textinput1 {
+    color: var(--dl-color-ecommecre-10);
+    width: 70%;
+    height: 100%;
+    padding: 0px;
+    box-shadow: 0px 5px 10px 0px #d4d4d4;
+    font-family: Poppins;
+    border-color: var(--dl-color-ecommecre-10);
+    border-radius: var(--dl-radius-radius-radius8);
+    background-color: var(--dl-color-ecommecre-60);
+  }
+  .forgot-password-container07 {
+    flex: 0 0 auto;
+    width: 60%;
+    height: 25%;
+    display: flex;
+    position: relative;
+    align-self: flex-end;
+    margin-top: 2%;
+    align-items: flex-start;
+  }
+  .forgot-password-text04 {
+    top: 0px;
+    color: var(--dl-color-danger-300);
+    right: 0px;
+    position: absolute;
+    text-align: right;
+    font-family: Poppins;
+  }
+  .forgot-password-phone-container {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-self: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .forgot-password-container08 {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .forgot-password-text05 {
+    color: var(--dl-color-ecommecre-10);
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 500;
+    letter-spacing: 3px;
+  }
+  .forgot-password-container09 {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    margin-top: 2%;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  .forgot-password-textinput2 {
+    color: var(--dl-color-ecommecre-10);
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    box-shadow: 0px 5px 10px 0px #d4d4d4;
+    font-family: Poppins;
+    border-color: var(--dl-color-ecommecre-10);
+    border-radius: var(--dl-radius-radius-radius8);
+    background-color: var(--dl-color-ecommecre-60);
+  }
+  .forgot-password-container10 {
+    flex: 0 0 auto;
+    width: 60%;
+    height: 25%;
+    display: flex;
+    position: relative;
+    align-self: flex-end;
+    margin-top: 2%;
+    align-items: flex-start;
+  }
+  .forgot-password-text06 {
+    top: 0px;
+    color: var(--dl-color-danger-300);
+    right: 0px;
+    position: absolute;
+    text-align: right;
+    font-family: Poppins;
+  }
+  .forgot-password-password-container {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-self: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .forgot-password-container11 {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .forgot-password-text07 {
+    color: var(--dl-color-ecommecre-10);
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    font-style: normal;
+    font-family: Poppins;
+    font-weight: 500;
+    letter-spacing: 3px;
+  }
+  .forgot-password-container12 {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    margin-top: 2%;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  .forgot-password-textinput3 {
+    color: var(--dl-color-ecommecre-10);
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    box-shadow: 0px 5px 10px 0px #d4d4d4;
+    font-family: Poppins;
+    border-color: var(--dl-color-ecommecre-10);
+    border-radius: var(--dl-radius-radius-radius8);
+    background-color: var(--dl-color-ecommecre-60);
+  }
+  .forgot-password-container13 {
+    flex: 0 0 auto;
+    width: 60%;
+    height: 25%;
+    display: flex;
+    position: relative;
+    align-self: flex-end;
+    margin-top: 2%;
+    align-items: flex-start;
+  }
+  .forgot-password-text08 {
+    top: 0px;
+    color: var(--dl-color-danger-300);
+    right: 0px;
+    position: absolute;
+    text-align: right;
+    font-family: Poppins;
+  }
+  .forgot-password-sign-container {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 12%;
+    display: flex;
+    position: relative;
+    align-self: center;
+    margin-top: 5%;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .forgot-password-button1 {
+    color: var(--dl-color-ecommecre-10);
+    width: 80%;
+    cursor: pointer;
+    height: 60%;
+    align-self: center;
+    box-shadow: rgb(212, 212, 212) 0px 5px 10px 0px;
+    font-style: normal;
+    margin-top: 18px;
+    text-align: center;
+    font-family: Poppins;
+    font-weight: 700;
+    padding: 0px;
+    border-width: 0px;
+    border-radius: 12px;
+    justify-content: center;
+    background-color: var(--dl-color-ecommecre-60);
+    transition: 0.8s ease-in-out;
+  }
+  .forgot-password-button1:hover
+  {
+    background-color: black;
+    color: aliceblue;
+  }
+
+  .forgot-password-button1:disabled{
+    opacity: 0.5;
+  }
+  .forgot-password-suggest-container {
+    width: 100%;
+    height: 8%;
+    display: flex;
+    position: relative;
+    margin-top: 2%;
+    align-items: flex-end;
+  }
+  .forgot-password-container14 {
+    flex: 0 0 auto;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+  }
+  .forgot-password-text09 {
+    color: var(--dl-color-ecommecre-10);
+    align-self: flex-end;
+    font-family: Poppins;
+    letter-spacing: 1px;
+  }
+  .forgot-password-container15 {
+    top: 0px;
+    flex: 0 0 auto;
+    right: 0px;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    align-items: flex-start;
+  }
+  .forgot-password-button2 {
+    color: var(--dl-color-ecommecre-30);
+    width: 100%;
+    cursor: pointer;
+    height: 100%;
+    align-self: flex-end;
+    text-align: center;
+    font-family: Poppins;
+    background-color: var(--dl-color-ecommecre-60);
+    padding: 0px;
+    border: 0px;
+    transition: 0.5s ease-in-out;
+  }
+  .forgot-password-button2:hover{
+    text-shadow: 0px 5px 10px  rgb(71, 224, 224);
+  }
+  .forgot-password-button2:disabled
+  {
+    opacity: 0.5;
+  }
+  @media(max-width: 1200px) {
+    .forgot-password-box-container {
+      width: 60%;
+      height: 100%;
+    }
+  }
+  @media(max-width: 991px) {
+    .forgot-password-box-container {
+      width: 70%;
+    }
+    .forgot-password-title-container {
+      width: 60%;
+    }
+    .forgot-password-text {
+      color: var(--dl-color-ecommecre-10);
+      font-size: 18px;
+      font-family: Poppins;
+    }
+  }
+  @media(max-width: 767px) {
+    .forgot-password-box-container {
+      width: 100%;
+    }
+    .forgot-password-text {
+      color: var(--dl-color-ecommecre-10);
+      font-size: 20px;
+      font-family: Poppins;
+    }
+  }
+  @media(max-width: 479px) {
+    .forgot-password-container01 {
+      width: 80vw;
+    }
+    .forgot-password-box-container {
+      width: 100%;
+      height: 85vh;
+      box-shadow: 7px 7px 14px #1A535C, -7px -7px 14px #4ECDC4;
+      margin-top: 10%;
+      margin-left: 0p0x;
+      margin-right: 0p0x;
+      border-radius: var(--dl-radius-radius-radius8);
+      margin-bottom: 0p0x;
+      padding-right: 0px;
+    }
+    .forgot-password-icon-container {
+      width: 30%;
+      height: 15%;
+    }
+    .forgot-password-title-container {
+      margin-top: 5%;
+    }
+    .forgot-password-text {
+      color: var(--dl-color-ecommecre-10);
+      width: 100%;
+      height: 100%;
+      font-size: 0.7rem;
+      align-self: center;
+      text-align: center;
+      font-family: Poppins;
+    }
+    .forgot-password-log-container {
+      width: 80%;
+      height: 55%;
+    }
+    .forgot-password-email-container {
+      height: 20%;
+      align-self: center;
+    }
+    .forgot-password-container02 {
+      width: 100%;
+    }
+    .forgot-password-text01 {
+      color: var(--dl-color-ecommecre-10);
+      font-size: 12px;
+      font-style: normal;
+      font-family: Poppins;
+      font-weight: 500;
+      letter-spacing: 3px;
+    }
+    .forgot-password-container03 {
+      font-size: 10px;
+    }
+    .forgot-password-text02 {
+      color: var(--dl-color-danger-300);
+      font-size: 10px;
+      font-family: Poppins;
+    }
+    .forgot-password-otp-container {
+      height: 30%;
+      align-self: center;
+    }
+    .forgot-password-container05 {
+      width: 100%;
+    }
+    .forgot-password-text03 {
+      color: var(--dl-color-ecommecre-10);
+      font-size: 12px;
+      font-style: normal;
+      font-family: Poppins;
+      font-weight: 500;
+      letter-spacing: 3px;
+    }
+    .forgot-password-container06 {
+      height: 20%;
+      font-size: 10px;
+    }
+    .forgot-password-text04 {
+      color: var(--dl-color-danger-300);
+      font-size: 10px;
+      font-family: Poppins;
+    }
+    .forgot-password-phone-container {
+      height: 30%;
+      align-self: center;
+    }
+    .forgot-password-container08 {
+      width: 100%;
+    }
+    .forgot-password-text05 {
+      color: var(--dl-color-ecommecre-10);
+      font-size: 12px;
+      font-style: normal;
+      font-family: Poppins;
+      font-weight: 500;
+      letter-spacing: 3px;
+    }
+    .forgot-password-container09 {
+      height: 20%;
+      font-size: 10px;
+    }
+    .forgot-password-textinput2 {
+      height: 100%;
+    }
+    .forgot-password-text06 {
+      color: var(--dl-color-danger-300);
+      font-size: 10px;
+      font-family: Poppins;
+    }
+    .forgot-password-password-container {
+      height: 20%;
+      align-self: center;
+    }
+    .forgot-password-container11 {
+      width: 100%;
+    }
+    .forgot-password-text07 {
+      color: var(--dl-color-ecommecre-10);
+      font-size: 12px;
+      font-style: normal;
+      font-family: Poppins;
+      font-weight: 500;
+      letter-spacing: 3px;
+    }
+    .forgot-password-container12 {
+      height: 30%;
+      font-size: 10px;
+    }
+    .forgot-password-text08 {
+      color: var(--dl-color-danger-300);
+      font-size: 10px;
+      font-family: Poppins;
+    }
+    .forgot-password-sign-container {
+      align-self: center;
+    }
+    .forgot-password-button1 {
+      color: var(--dl-color-ecommecre-10);
+      width: 80%;
+      font-size: 10px;
+      box-shadow: rgb(212, 212, 212) 0px 5px 10px 0px;
+      font-style: normal;
+      text-align: center;
+      font-family: Poppins;
+      font-weight: 700;
+      padding-top: 3%;
+      background-color: var(--dl-color-ecommecre-60);
+    }
+    .forgot-password-suggest-container {
+      margin-top: 10%;
+    }
+    .forgot-password-text09 {
+      letter-spacing: 0.5px;
+    }
+  }
+  

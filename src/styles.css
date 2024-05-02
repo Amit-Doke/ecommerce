@@ -1,1 +1,451 @@
-/* You can add global styles to this file, and also import other style files */
+
+ 
+ 
+ :root {
+  --dl-color-gray-500: #595959;
+  --dl-color-gray-700: #999999;
+  --dl-color-gray-900: #D9D9D9;
+  --dl-size-size-large: 144px;
+  --dl-size-size-small: 48px;
+  --dl-color-danger-300: #A22020;
+  --dl-color-danger-500: #BF2626;
+  --dl-color-danger-700: #E14747;
+  --dl-color-gray-black: #000000;
+  --dl-color-gray-white: #FFFFFF;
+  --dl-size-size-medium: 96px;
+  --dl-size-size-xlarge: 192px;
+  --dl-size-size-xsmall: 16px;
+  --dl-space-space-unit: 16px;
+  --dl-color-primary-100: #003EB3;
+  --dl-color-primary-300: #0074F0;
+  --dl-color-primary-500: #14A9FF;
+  --dl-color-primary-700: #85DCFF;
+  --dl-color-success-300: #199033;
+  --dl-color-success-500: #32A94C;
+  --dl-color-success-700: #4CC366;
+  --dl-size-size-xxlarge: 288px;
+  --dl-color-ecommecre-10: #54BAB9;
+  --dl-color-ecommecre-30: #E9DAC1;
+  --dl-color-ecommecre-60: #FBF8F1;
+  --dl-color-ecommecre-80:#F7ECDE;
+  --dl-size-size-maxwidth: 1400px;
+  --dl-radius-radius-round: 50%;
+  --dl-space-space-halfunit: 8px;
+  --dl-space-space-sixunits: 96px;
+  --dl-space-space-twounits: 32px;
+  --dl-radius-radius-radius2: 2px;
+  --dl-radius-radius-radius4: 4px;
+  --dl-radius-radius-radius8: 8px;
+  --dl-space-space-fiveunits: 80px;
+  --dl-space-space-fourunits: 64px;
+  --dl-space-space-threeunits: 48px;
+  --dl-space-space-oneandhalfunits: 24px;
+}
+
+.list {
+  width: 100%;
+  margin: 1em 0px 1em 0px;
+  display: block;
+  padding: 0px 0px 0px 1.5rem;
+  list-style-type: initial;
+  scroll-behavior: smooth;
+  list-style-position: outside;
+}
+.list-item {
+  display: list-item;
+}
+.teleport-show {
+  display: flex !important;
+  transform: none !important;
+}
+
+.opt {
+  top: 0px;
+  left: 152px;
+  width: 120px;
+  bottom: 0px;
+  height: 34px;
+  margin: auto;
+  position: absolute;
+  align-self: center;
+  box-shadow: 0px 5px 10px 0px #d4d4d4;
+  font-family: Poppins;
+  border-color: var(--dl-color-ecommecre-10);
+  border-width: 1px;
+  border-radius: 15px;
+}
+.option-button {
+  color: var(--dl-color-ecommecre-10);
+  cursor: pointer;
+  font-family: Poppins;
+  text-shadow: 0px 5px 10px 0px #d4d4d4;
+  border-width: 0px;
+  padding-left: 1.2rem;
+  border-radius: 0px;
+  background-color: var(--dl-color-ecommecre-60);
+  transition: 0.3s ease-in-out;
+}
+.option-button:hover
+{
+  text-shadow: 0px 2px 5px yellow;
+}
+.order-button {
+  color: var(--dl-color-ecommecre-10);
+  width: 25%;
+  cursor: pointer;
+  height: 80%;
+  font-size: 2rem;
+  font-family: Poppins;
+  font-weight: 500;
+  border-radius: 25px;
+  background-color: var(--dl-color-ecommecre-60);
+  justify-content: center;
+  align-content: center;
+  transition:0.5s;
+}
+
+.op-button {
+  width: 30%;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  padding: 0px;
+  align-self: center;
+  font-style: normal;
+  align-items: center;
+  font-family: Poppins;
+  font-weight: 900;
+  border-width: 0px;
+  justify-items: center;
+  flex-direction: row;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.order-button:hover
+{
+  color: white;
+  background-color: #000000;
+}
+
+.order-button:disabled
+{
+  background-color: #000000;
+  color: white;
+  opacity: 0.5;
+}
+.review-star {
+  fill: #fdff00;
+  width: 20%;
+  height: 100%;
+}
+.opeartion {
+  color: var(--dl-color-gray-black);
+  width: 5%;
+  cursor: pointer;
+  height: 80%;
+  font-size: 1.5rem;
+  align-self: center;
+  font-style: normal;
+  font-family: Poppins;
+  font-weight: 800;
+  padding-top: 0px;
+  border-width: 0px;
+  padding-bottom: 0px;
+  background-color: transparent;
+}
+.checkout-item {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.item-text {
+  width: 70%;
+  height: 90%;
+  font-size: 1.2rem;
+  align-self: center;
+  font-style: normal;
+  text-align: left;
+  font-family: Poppins;
+  font-weight: 600;
+  border-color: var(--dl-color-ecommecre-10);
+  border-width: 2px;
+  padding-left: 1%;
+  border-radius: 10px;
+  background-color: var(--dl-color-gray-white);
+}
+
+.checkout-item {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  padding-right: 2%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.item-text {
+  width: 70%;
+  height: 90%;
+  font-size: 1.2rem;
+  align-self: center;
+  font-style: normal;
+  text-align: left;
+  font-family: Poppins;
+  font-weight: 600;
+  border-color: var(--dl-color-ecommecre-10);
+  border-width: 2px;
+  padding-left: 1%;
+  border-radius: 10px;
+  background-color: var(--dl-color-gray-white);
+}
+.checkout-button {
+  color: var(--dl-color-ecommecre-60);
+  width: 10%;
+  cursor: pointer;
+  height: 80%;
+  padding: 1%;
+  align-self: center;
+  box-shadow: rgb(212, 212, 212) 0px 5px 10px 0px;
+  font-style: normal;
+  font-family: Poppins;
+  font-weight: 700;
+  margin-left: 5%;
+  border-width: 0px;
+  border-radius: 20px;
+  background-color: var(--dl-color-ecommecre-30);
+}
+.checkout-container {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 18%;
+  display: flex;
+  margin-top: 2%;
+  align-items: flex-start;
+  margin-bottom: 2%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.checkout-button {
+  color: var(--dl-color-ecommecre-60);
+  width: 10%;
+  cursor: pointer;
+  height: 80%;
+  padding: 1%;
+  align-self: center;
+  box-shadow: rgb(212, 212, 212) 0px 5px 10px 0px;
+  font-style: normal;
+  font-family: Poppins;
+  font-weight: 700;
+  margin-left: 5%;
+  border-width: 0px;
+  border-radius: 20px;
+  background-color: var(--dl-color-ecommecre-30);
+  transition: 0.3s;
+}
+.checkout-button:hover
+{
+  background-color: #000000;
+  color: white;
+}
+
+.loco-container {
+  gap: 4%;
+  flex: 0 0 auto;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.profile-container {
+  gap: 2%;
+  flex: 0 0 auto;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  overflow: auto;
+  align-self: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.container-label {
+  color: var(--dl-color-ecommecre-10);
+  font-size: 1.2vw;
+  font-style: normal;
+  font-weight: 700;
+}
+.container-input {
+  width: 80%;
+  height: 60%;
+  font-size: 1rem;
+  align-self: center;
+  font-family: Poppins;
+  border-color: var(--dl-color-ecommecre-10);
+  border-width: 1px;
+  justify-self: flex-start;
+  border-radius: var(--dl-radius-radius-radius4);
+}
+.check-button {
+  color: var(--dl-color-ecommecre-60);
+  width: 15%;
+  cursor: pointer;
+  height: 70%;
+  font-size: 1vw;
+  box-shadow: 0px 5px 10px 0px #bebebe,0px -5px 10px 0px #fffefe;
+  font-style: normal;
+  font-family: Poppins;
+  font-weight: 600;
+  align-content: center;
+  border-radius: 2rem;
+  justify-content: center;
+  background-color: var(--dl-color-ecommecre-30);
+}
+.check-heading {
+  color: var(--dl-color-ecommecre-10);
+  width: 100%;
+  height: 20%;
+  font-size: 1.5rem;
+  font-family: Poppins;
+  letter-spacing: 2px;
+}
+.info-heading {
+  color: var(--dl-color-ecommecre-10);
+  width: auto;
+  height: auto;
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: Poppins;
+  letter-spacing: 1px;
+}
+.info-data {
+  width: 100%;
+  height: 70%;
+  font-size: 1rem;
+  align-self: center;
+  font-style: normal;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 600;
+  padding-top: 0.5rem;
+  background-color: var(--dl-color-gray-white);
+}
+
+.Heading {
+  font-size: 32px;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+.Content {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+@media(max-width: 1600px) {
+  .order-button
+  {
+    font-size: 1.8rem;
+  }
+  
+}
+@media(max-width: 1200px) {
+  
+  .item-text {
+    font-size: 1.1rem;
+  }
+  .checkout-button {
+    font-size: 0.8rem;
+  }
+  .checkout-heading {
+    font-size: 1.2rem;
+  }
+  .check-heading {
+    font-size: 1.2rem;
+  }
+}
+@media(max-width: 991px) {
+  
+  .order-button
+  {
+    font-size: 1.5rem;
+  }
+  .opeartion {
+    padding-left: 1.5%;
+  }
+  .item-text {
+    font-size: 1rem;
+  }
+  .checkout-heading {
+    font-size: 1rem;
+  }
+  .container-input {
+    font-size: 0.7rem;
+  }
+  .check-button {
+    font-size: 2vw;
+  }
+  .check-heading {
+    font-size: 1rem;
+  }
+  .info-heading {
+    font-size: 0.8rem;
+  }
+  .info-data {
+    font-size: 0.7rem;
+  }
+}
+@media(max-width: 767px) {
+  
+  .item-text {
+    font-size: 0.8rem;
+  }
+  .checkout-button {
+    height: 50%;
+    font-size: 0.6rem;
+  }
+  .checkout-heading {
+    font-size: 0.8rem;
+  }
+}
+@media(max-width: 479px) {
+  .order-button
+  {
+    font-size: 0.4rem;
+    width: 30%;
+  }
+  .item-text {
+    font-size: 0.7rem;
+  }
+  .checkout-button {
+    width: 20%;
+    height: 70%;
+    font-size: 0.5rem;
+  }
+  .checkout-heading {
+    font-size: 0.8rem;
+  }
+  .container-input {
+    font-size: 0.5rem;
+  }
+  .check-heading {
+    font-size: 0.6rem;
+  }
+  .info-heading {
+    font-size: 0.6rem;
+  }
+  .info-data {
+    font-size: 0.5rem;
+  }
+}

@@ -1,0 +1,81 @@
+
+<div class="forgot-password-container">
+  <div class="forgot-password-container01">
+    <div class="forgot-password-box-container">
+      <div class="forgot-password-icon-container">
+        <svg viewBox="0 0 1024 1024" class="forgot-password-icon">
+          <path
+            d="M475.648 186.624c3.115-5.248 7.893-10.325 14.251-14.165 10.069-6.101 21.589-7.595 32.256-4.949s20.224 9.216 26.197 19.115l361.216 603.008c3.285 5.589 5.461 12.715 5.547 20.565 0.128 11.776-4.48 22.443-12.16 30.293s-18.261 12.715-29.568 12.843h-722.645c-6.485-0.043-13.696-1.749-20.523-5.717-10.197-5.888-17.024-15.317-19.883-25.899s-1.621-22.144 3.925-31.787zM402.432 142.763l-361.387 603.307c-18.005 31.189-21.589 66.133-13.141 97.707s29.013 60.075 59.648 77.739c19.797 11.435 41.643 17.067 62.933 17.152h722.901c35.797-0.384 67.712-15.104 90.581-38.485s36.864-55.595 36.48-90.923c-0.256-22.869-6.528-44.544-17.323-62.891l-361.557-603.605c-18.432-30.421-47.36-50.389-79.104-58.155s-66.603-3.456-96.811 14.891c-18.304 11.093-33.067 26.24-43.179 43.264zM469.333 384v170.667c0 23.552 19.115 42.667 42.667 42.667s42.667-19.115 42.667-42.667v-170.667c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667zM554.667 725.333c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667 19.115 42.667 42.667 42.667 42.667-19.115 42.667-42.667z"
+          ></path>
+        </svg>
+      </div>
+      <div class="forgot-password-title-container">
+        <h1 class="forgot-password-text">Let&apos;s reset password  . . !</h1>
+      </div>
+      <div class="forgot-password-log-container">
+        <div class="forgot-password-email-container">
+          <div class="forgot-password-container02">
+            <span class="forgot-password-text01">EMAIL ADDRESS</span>
+          </div>
+          <div class="forgot-password-container03">
+            <input type="text" class="forgot-password-textinput input"  [(ngModel)]="email" [disabled]="!flag" (keydown)="emailError=''"/>
+            <!-- <button class="forgot-password-button button" (click)="generateOtp()" [disabled]="flag">OTP</button> -->
+          </div>
+          <div class="forgot-password-container04" *ngIf="emailError.length>0">
+            
+            <ng-container>
+              <span class="forgot-password-text02" *ngIf="cntU<3">{{emailError}}</span>
+              <span class="forgot-password-text02" *ngIf="cntU>=3" (click)="signUp()">Do you want to Sign Up</span>
+            </ng-container>
+            
+          </div>
+        </div>
+        <!-- <div class="forgot-password-otp-container">
+          <div class="forgot-password-container05">
+            <span class="forgot-password-text03">ENTER OTP</span>
+          </div>
+          <div class="forgot-password-container06">
+            <input type="text" class="forgot-password-textinput1 input" [disabled]="!flag" (keydown)="otpError=''" #otp/>
+          </div>
+          <div class="forgot-password-container07" *ngIf="otpError.length>0">
+            <span class="forgot-password-text04">{{otpError}}</span>
+          </div>
+        </div> -->
+        <div class="forgot-password-phone-container">
+          <div class="forgot-password-container08">
+            <span class="forgot-password-text05">NEW PASSWORD</span>
+          </div>
+          <div class="forgot-password-container09">
+            <input type="password" class="forgot-password-textinput2 input" [disabled]="!flag" #pass/>
+          </div>
+        </div>
+        <div class="forgot-password-password-container">
+          <div class="forgot-password-container11">
+            <span class="forgot-password-text07">CONFIRM PASSWORD</span>
+          </div>
+          <div class="forgot-password-container12">
+            <input type="password" class="forgot-password-textinput3 input" [disabled]="!flag" (keydown)="passError=''" #cpass/>
+          </div>
+          <div class="forgot-password-container13" *ngIf="passError.length>0">
+            <span class="forgot-password-text08">{{passError}}</span>
+          </div>
+        </div>
+        <div class="forgot-password-sign-container">
+          <button class="forgot-password-button1 button" (click)="changePassword('0',pass.value,cpass.value)" [disabled]="flag">
+            Change password
+          </button>
+        </div>
+        <div class="forgot-password-suggest-container">
+          <div class="forgot-password-container14">
+            <span class="forgot-password-text09">Back to login page</span>
+          </div>
+          <div class="forgot-password-container15">
+            <button class="forgot-password-button2 button" (click)="logIn()">Log in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+

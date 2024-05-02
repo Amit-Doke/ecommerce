@@ -1,0 +1,71 @@
+
+<div class="sign-up-container">
+  <div class="sign-up-container01">
+    <div class="sign-up-box-container">
+      <div class="sign-up-icon-container">
+        <svg viewBox="0 0 1024 1024" class="sign-up-icon">
+          <path
+            d="M426 726l342-342-60-60-282 280-110-110-60 60zM512 42l384 172v256q0 178-110 325t-274 187q-164-40-274-187t-110-325v-256z"
+          ></path>
+        </svg>
+      </div>
+      <div class="sign-up-title-container">
+        <h1 class="sign-up-text">Let&apos;s get started  . . !</h1>
+      </div>
+      <div class="sign-up-log-container">
+        <div class="sign-up-email-container">
+          <div class="sign-up-container02">
+            <span class="sign-up-text01">EMAIL ADDRESS</span>
+          </div>
+          <div class="sign-up-container03">
+            <input type="text" class="sign-up-textinput input" [disabled]="(otpFlag)" (keypress)="emailError=''" #email/>
+            <!-- <button class="sign-up-button button" (click)="generateOtp(email.value)">OTP</button> -->
+          </div>
+          <div class="sign-up-container04" *ngIf="emailError.length>1">
+            <span class="sign-up-text02">{{emailError}}</span>
+          </div>
+        </div>
+        <!-- <div class="sign-up-otp-container">
+          <div class="sign-up-container05">
+            <span class="sign-up-text03">ENTER OTP</span>
+          </div>
+          <div class="sign-up-container06">
+            <input type="number" class="sign-up-textinput1 input" [disabled]="otpFlag" #otp/>
+          </div>
+        </div> -->
+        <div class="sign-up-phone-container">
+          <div class="sign-up-container08">
+            <span class="sign-up-text05">PHONE NUMBER (+91)</span>
+          </div>
+          <div class="sign-up-container09">
+            <input type="number" class="sign-up-textinput2 input" [disabled]="otpFlag" (keyup)="phoneError=''" #phone/>
+          </div>
+          <div class="sign-up-container10" *ngIf="phoneError.length>0" >
+            <span class="sign-up-text06">{{phoneError}}</span>
+          </div>
+        </div>
+        <div class="sign-up-password-container">
+          <div class="sign-up-container11">
+            <span class="sign-up-text07">PASSWORD</span>
+          </div>
+          <div class="sign-up-container12">
+            <input type="password" class="sign-up-textinput3 input" [disabled]="otpFlag" #pass/>
+          </div>
+        </div>
+        <div class="sign-up-sign-container">
+          <button class="sign-up-button1 button" (click)="register(email.value,'0',phone.value,pass.value)">Sign up</button>
+        </div>
+        <div class="sign-up-suggest-container">
+          <div class="sign-up-container14">
+            <span class="sign-up-text09">Already have an account?</span>
+          </div>
+          <div class="sign-up-container15">
+            <button class="sign-up-button2 button" (click)="navi()">Log in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+

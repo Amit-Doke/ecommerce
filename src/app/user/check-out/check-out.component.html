@@ -1,0 +1,111 @@
+<div class="new-checkout-container" >
+  <div class="new-checkout-checkout-container" (mouseleave)="sendFlagToParent()" (touchleave)="sendFlagToParent()">
+    <div class="new-checkout-check-container">
+      <div class="checkout-container">
+        <h3 class="check-heading">Full Name</h3>
+        <div class="checkout-item">
+          <input type="text" placeholder="Enter Name" class="container-input" [disabled]="!fullNameSwitch" [(ngModel)]="user.name"/>
+          <ng-container>
+            <button class="check-button" *ngIf="!fullNameSwitch" (click)="fullNameSwitch=true">EDIT</button>
+            <button class="check-button" *ngIf="fullNameSwitch" (click)="fullNameSwitch=false">OK</button>
+          </ng-container>
+          
+          
+        </div>
+      </div>
+      <div class="checkout-container">
+        <h3 class="new-checkout-email-heading check-heading">E-mail</h3>
+        <div class="checkout-item">
+          <input
+            type="text"
+            class="container-input"
+            disabled="true"
+            [(ngModel)]="user.email"
+          />
+        </div>
+      </div>
+      <div class="checkout-container">
+        <h3 class="new-checkout-phone-heading check-heading">
+          Phone Number (+91)
+        </h3>
+        <div class="checkout-item">
+          <input
+            type="text"
+            placeholder="Enter Phone Number"
+            class="container-input"
+            [disabled]="!phoneSwitch" [(ngModel)]="user.mobileNumber"
+          />
+          <ng-container>
+            <button class="check-button" *ngIf="!phoneSwitch" (click)="phoneSwitch=true">EDIT</button>
+            <button class="check-button" *ngIf="phoneSwitch" (click)="phoneSwitch=false">OK</button>
+          </ng-container>
+          
+          
+        </div>
+      </div>
+      <div class="checkout-container">
+        <h3 class="new-checkout-pincode-heading check-heading">PINCODE</h3>
+        <div class="checkout-item">
+          <input
+            type="text"
+            placeholder="Enter Pincode"
+            class="container-input"
+            [disabled]="!pincodeSwitch" [(ngModel)]="user.pincode"
+          />
+          <ng-container>
+            <button class="check-button" *ngIf="!pincodeSwitch" (click)="pincodeSwitch=true">EDIT</button>
+            <button class="check-button" *ngIf="pincodeSwitch" (click)="pincodeSwitch=false;getInfo()">OK</button>
+          </ng-container>
+        </div>
+      </div>
+      <div class="new-checkout-info-container">
+        <div class="new-checkout-country-container">
+          <h3 class="info-heading">Country</h3>
+          <span class="info-data">{{country}}</span>
+        </div>
+        <div class="new-checkout-state-container">
+          <h3 class="info-heading">State</h3>
+          <span class="info-data">{{state}}</span>
+        </div>
+        <div class="new-checkout-district-container">
+          <h3 class="info-heading">District</h3>
+          <span class="info-data">{{district}}</span>
+        </div>
+      </div>
+      <div class="new-checkout-address-container checkout-container">
+        <h3 class="new-checkout-address-heading check-heading">
+          Delivery Address
+        </h3>
+        <div class="checkout-item">
+          <textarea
+            placeholder="Enter Address"
+            class="new-checkout-address-textarea textarea"
+            [disabled]="!addressSwitch" [(ngModel)]="user.address"
+          ></textarea>
+          <ng-container>
+            <button class="new-checkout-address-edit check-button" *ngIf="!addressSwitch" (click)="addressSwitch=true">EDIT</button>
+            <button class="new-checkout-address-edit check-button" *ngIf="addressSwitch" (click)="addressSwitch=false">OK</button>
+          </ng-container>
+        </div>
+        <!-- <div class="table-container">
+          <div class="table-heading">
+            <span class="heading" style="width: 50%;">Product Name</span>
+            <span class="heading" style="width: 15%;" >Quantity</span>
+            <span class="heading" style="width: 25%;">Sub Total</span>
+          </div>
+          <div class="table-contain" *ngFor="let data of products">
+            <span class="table-data" style="width: 50%;">{{data.name}}</span>
+            <span class="table-data" style="width: 15%;">X {{data.quantity}}</span>
+            <span class="table-data" style="width: 25%;">{{data.discountPrice*data.quantity}}</span>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <button class="new-checkout-confirm-order-button" (click)="confirmOrder()">
+      <span class="new-checkout-order-test">
+        <span>Confirm Order</span>
+        <br />
+      </span>
+    </button>
+  </div>
+</div>

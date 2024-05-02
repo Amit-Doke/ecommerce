@@ -1,0 +1,60 @@
+<div class="log-in-container">
+  <div class="log-in-container01">
+    <div class="log-in-icon-container">
+      <svg viewBox="0 0 1024 1024" class="log-in-icon">
+        <path
+          d="M928 128h-288c0-70.692-57.306-128-128-128-70.692 0-128 57.308-128 128h-288c-17.672 0-32 14.328-32 32v832c0 17.674 14.328 32 32 32h832c17.674 0 32-14.326 32-32v-832c0-17.672-14.326-32-32-32zM512 64c35.346 0 64 28.654 64 64s-28.654 64-64 64c-35.346 0-64-28.654-64-64s28.654-64 64-64zM896 960h-768v-768h128v96c0 17.672 14.328 32 32 32h448c17.674 0 32-14.328 32-32v-96h128v768z"
+        ></path>
+        <path
+          d="M448 858.51l-205.254-237.254 58.508-58.51 146.746 114.744 274.742-242.744 58.514 58.508z"
+        ></path>
+      </svg>
+    </div>
+    <div class="log-in-title-container">
+      <h1 class="log-in-text">Let&apos;s get started  . . !</h1>
+    </div>
+    <div class="log-in-log-container">
+      <div class="log-in-email-container">
+        <div class="log-in-container02">
+          <span class="log-in-text1">EMAIL ADDRESS</span>
+        </div>
+        <div class="log-in-container03">
+          <input type="text" class="log-in-textinput input" #email/>
+        </div>
+        <div class="log-in-container04" *ngIf="messageFlag==1">
+          <ng-container>
+            <span class="log-in-text2" *ngIf="cntU<3">User Email is incorrect</span>
+            <span class="log-in-text2" *ngIf="cntU>=3" routerLink="register" style="cursor: pointer;">Email is Not Valid Do you want to Sign up</span>
+          </ng-container>
+        </div>
+      </div>
+      <div class="log-in-password-container">
+        <div class="log-in-container05">
+          <span class="log-in-text3">PASSWORD</span>
+        </div>
+        <div class="log-in-container06">
+          <input type="password" class="log-in-textinput1 input" #password/>
+        </div>
+        <div class="log-in-container07" *ngIf="messageFlag==2">
+          <ng-container>
+            <span class="log-in-text4" *ngIf="cntP<3">Password incorrect</span>
+            <span class="log-in-text4" *ngIf="cntP>=3" (click)="navi('forget')" style="cursor: pointer;">Forget Password?</span>
+          </ng-container>
+        </div>
+      </div>
+      <div class="log-in-log-container1">
+        <button class="log-in-button button" (click)="login(email.value,password.value)">Log in</button>
+      </div>
+      <div class="log-in-suggest-container">
+        <div class="log-in-container08">
+          <span class="log-in-text5">Don&apos;t have an account?</span>
+        </div>
+        <div class="log-in-container09">
+          <button (click)="navi('register')" class="log-in-button1 button">Sign up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
